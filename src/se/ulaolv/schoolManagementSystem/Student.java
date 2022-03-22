@@ -4,47 +4,90 @@ public class Student {
     private int id;
     private String name;
     private int grade;
-    private int feesPaid;
-    private int feesTotal;
+    private int fee;
+    private int feeLeft;
+    private int feePaid;
+
+    public Student(){
+
+    }
 
     public Student(int id, String name, int grade){
-        this.feesPaid = 0;
-        this.feesTotal = 3000000;
         this.id = id;
         this.name = name;
         this.grade = grade;
+        fee = 300000;
+        feeLeft = 300000;
+        feePaid = 0;
+
     }
 
-    public void setGrade(int grade){
-        this.grade = grade;
-    }
+    public void payFee(int pay){
+        feePaid += pay;
+        feeLeft -= pay;
+        //+SCHOOLINCOME UP
+        School.economi += pay;
 
-    public void payFees(int fees){
-        feesPaid += fees;
-        School.updateTotalMoneyEarned(feesPaid);
+
     }
 
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getGrade() {
         return grade;
     }
 
-    public int getFeesPaid() {
-        return feesPaid;
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
-    public int getFeesTotal() {
-        return feesTotal;
+    public int getFee() {
+        return fee;
     }
 
-    public int getRemainingFees(){
-        return feesTotal - feesPaid;
+    public void setFee(int fee) {
+        this.fee = fee;
+    }
+
+    public int getFeeLeft() {
+        return feeLeft;
+    }
+
+    public void setFeeLeft(int feeLeft) {
+        this.feeLeft = feeLeft;
+    }
+
+    public int getFeePaid() {
+        return feePaid;
+    }
+
+    public void setFeePaid(int feePaid) {
+        this.feePaid = feePaid;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", grade=" + grade +
+                ", fee=" + fee +
+                ", feeLeft=" + feeLeft +
+                ", feePaid=" + feePaid +
+                '}';
     }
 }

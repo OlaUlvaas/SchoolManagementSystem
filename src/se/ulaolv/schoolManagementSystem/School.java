@@ -3,16 +3,17 @@ package se.ulaolv.schoolManagementSystem;
 import java.util.List;
 
 public class School {
-    private List<Student> students;
-    private List<Teacher> teachers;
-    private static int totalMoneyEarned;
-    private static int totalMoneySpent;
+    private static List<Student> students;
+    private static List<Teacher> teachers;
+    public static int economi;
 
-    public School(List<Student> students, List<Teacher> teachers) {
+    public School(){
+
+    }
+    public School(List<Student> students, List<Teacher> teachers){
         this.students = students;
         this.teachers = teachers;
-        totalMoneyEarned = 0;
-        totalMoneySpent = 0;
+        economi = 0;
     }
 
     public List<Student> getStudents() {
@@ -29,21 +30,5 @@ public class School {
 
     public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
-    }
-
-    public int getTotalMoneyEarned() {
-        return totalMoneyEarned;
-    }
-
-    public static void updateTotalMoneyEarned(int moneyEarned) {
-        totalMoneyEarned += moneyEarned;
-    }
-
-    public int getTotalMoneySpent() {
-        return totalMoneySpent;
-    }
-
-    public static void updateTotalMoneySpent(int moneySpent) {
-        totalMoneySpent -= moneySpent;
     }
 }
